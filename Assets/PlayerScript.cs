@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     Rigidbody2D _rb;
     [SerializeField] float m_movePower = 5f;
