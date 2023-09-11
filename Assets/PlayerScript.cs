@@ -14,8 +14,12 @@ public class PlayerScript : MonoBehaviour
         velocity.x = m_h * m_movePower;
         _rb.velocity = velocity;
     }
+    private void FixedUpdate()
+    {
+        _rb.AddForce(Vector2.right * m_h * m_movePower, ForceMode2D.Force);
+    }
     void Update()
     {
-           
+        m_h = Input.GetAxisRaw("Horizontal");
     }
 }
