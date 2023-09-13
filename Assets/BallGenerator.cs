@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class BallGenerator : MonoBehaviour
 {
-    float span = 1f;
-    float delta = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject BrueBall = null;
+    [SerializeField, Range(0.1f, 1f)] float m_interval = 0.25f;
+    float m_timer;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        m_timer += Time.deltaTime;
+
+        if (m_timer > m_interval)
+        {
+            m_timer = 0;
+            Instantiate(BrueBall, this.gameObject.transform.position, BrueBall.transform.rotation);
+        }
     }
 }
