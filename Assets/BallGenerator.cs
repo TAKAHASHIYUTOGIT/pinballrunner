@@ -4,18 +4,44 @@ using UnityEngine;
 
 public class BallGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject BrueBall = null;
-    [SerializeField, Range(0.1f, 1f)] float m_interval = 0.25f;
-    float m_timer;
+    [SerializeField] GameObject _redBall = null;
+    [SerializeField] GameObject _blueBall = null;
+    [SerializeField] GameObject _whiteBall = null;
+    [SerializeField] float r_interval = 2f;
+    [SerializeField] float b_interval = 3f;
+    [SerializeField] float w_interval = 7f;
+    [SerializeField] Transform rangeA;
+    [SerializeField] Transform rangeB;
+    float r_timer;
+    float b_timer;
+    float w_timer;
 
     void Update()
     {
-        m_timer += Time.deltaTime;
+        r_timer += Time.deltaTime;
+        b_timer += Time.deltaTime;
+        w_timer += Time.deltaTime;
 
-        if (m_timer > m_interval)
+        if (r_timer > r_interval)
         {
-            m_timer = 0;
-            Instantiate(BrueBall, this.gameObject.transform.position, BrueBall.transform.rotation);
+            float x = Random.Range(rangeA.position.x, rangeB.position.x);
+            float y = Random.Range(rangeA.position.y, rangeB.position.y);
+            r_timer = 0;
+            Instantiate(_redBall, new Vector2(x, y), _redBall.transform.rotation);
+        }
+        if (b_timer > b_interval)
+        {
+            float x = Random.Range(rangeA.position.x, rangeB.position.x);
+            float y = Random.Range(rangeA.position.y, rangeB.position.y);
+            b_timer = 0;
+            Instantiate(_blueBall, new Vector2(x,y), _blueBall.transform.rotation);
+        }
+        if (w_timer > w_interval)
+        {
+            float x = Random.Range(rangeA.position.x, rangeB.position.x);
+            float y = Random.Range(rangeA.position.y, rangeB.position.y);
+            w_timer = 0;
+            Instantiate(_whiteBall, new Vector2(x, y), _whiteBall.transform.rotation);
         }
     }
 }
