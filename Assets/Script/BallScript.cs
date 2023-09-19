@@ -11,7 +11,6 @@ public class BallScript : MonoBehaviour
         if(collision.gameObject.name == "Player")
         {
             Destroy(this.gameObject, 0.1f);
-            Debug.Log("KagoIn");
         }
     }
 }

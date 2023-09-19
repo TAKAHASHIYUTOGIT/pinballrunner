@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Road
   - Kago
+  - Bball
+  - Rball
+  - Wball
   layers:
   - Default
   - TransparentFX

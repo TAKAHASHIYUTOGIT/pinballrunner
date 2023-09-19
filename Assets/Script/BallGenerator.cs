@@ -7,7 +7,7 @@ public class BallGenerator : MonoBehaviour
     [SerializeField] GameObject _redBall = null;
     [SerializeField] GameObject _blueBall = null;
     [SerializeField] GameObject _whiteBall = null;
-    [SerializeField] float r_interval = 2f;
+    [SerializeField] float r_interval = 1f;
     [SerializeField] float b_interval = 3f;
     [SerializeField] float w_interval = 7f;
     [SerializeField] Transform rangeA;
@@ -18,6 +18,7 @@ public class BallGenerator : MonoBehaviour
 
     void Update()
     {
+        //それぞれのボールが出るタイマー
         r_timer += Time.deltaTime;
         b_timer += Time.deltaTime;
         w_timer += Time.deltaTime;
@@ -26,6 +27,7 @@ public class BallGenerator : MonoBehaviour
         {
             float x = Random.Range(rangeA.position.x, rangeB.position.x);
             float y = Random.Range(rangeA.position.y, rangeB.position.y);
+            //ボールが出る範囲設定
             r_timer = 0;
             Instantiate(_redBall, new Vector2(x, y), _redBall.transform.rotation);
         }
