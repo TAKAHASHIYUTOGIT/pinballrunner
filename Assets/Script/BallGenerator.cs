@@ -23,7 +23,7 @@ public class BallGenerator : MonoBehaviour
         b_timer += Time.deltaTime;
         w_timer += Time.deltaTime;
 
-        if (r_timer > r_interval)
+        if (r_timer > r_interval)//赤ボールの設定
         {
             float x = Random.Range(rangeA.position.x, rangeB.position.x);
             float y = Random.Range(rangeA.position.y, rangeB.position.y);
@@ -31,14 +31,14 @@ public class BallGenerator : MonoBehaviour
             r_timer = 0;
             Instantiate(_redBall, new Vector2(x, y), _redBall.transform.rotation);
         }
-        if (b_timer > b_interval)
+        if (b_timer > b_interval)//青ボールの設定
         {
             float x = Random.Range(rangeA.position.x, rangeB.position.x);
             float y = Random.Range(rangeA.position.y, rangeB.position.y);
             b_timer = 0;
             Instantiate(_blueBall, new Vector2(x,y), _blueBall.transform.rotation);
         }
-        if (w_timer > w_interval)
+        if (w_timer > w_interval)//白ボールの設定
         {
             float x = Random.Range(rangeA.position.x, rangeB.position.x);
             float y = Random.Range(rangeA.position.y, rangeB.position.y);
