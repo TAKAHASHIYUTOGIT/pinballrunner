@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Point : MonoBehaviour
 {
-    [SerializeField] GameObject _redBall = null;
-    [SerializeField] GameObject _blueBall = null;
-    [SerializeField] GameObject _whiteBall = null;
-    float Score = 0; 
+    [SerializeField] Text _scoreText;
+    public static int _score = 0; 
     void Start()
     {
         
@@ -17,15 +16,18 @@ public class Point : MonoBehaviour
     {
         if(collision.gameObject.tag == "Rball")
         {
-            Score += 1;
+            _score += 1;
+            _scoreText.text = "スコア:" +  _score.ToString("D2");//D2は01と表示してくれる
         }
         if(collision.gameObject.tag == "Bball")
         {
-            Score += 3;
+            _score += 3;
+            _scoreText.text = "スコア:" + _score.ToString("D2");
         }
         if (collision.gameObject.tag == "Wball")
         {
-            Score += 5;
+            _score += 5;
+            _scoreText.text = "スコア:" + _score.ToString("D2");
         }
     }
 }

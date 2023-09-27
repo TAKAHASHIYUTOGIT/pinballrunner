@@ -12,6 +12,7 @@ public class Result : MonoBehaviour
 
     void Update()
     {
-        _resaltText.text = Timer._timer.ToString("f2");
+        _resaltText.text = "ÉXÉRÉA:" + Point._score.ToString("D2");
+        
     }
 }

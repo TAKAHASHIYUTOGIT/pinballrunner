@@ -10,19 +10,20 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        _timer = 0;
+        _timer = _gameOverTime;
     }
 
     void Update()
     {
-        if (_timer > _gameOverTime)
+        if (_timer <= 0)
         {
             SceneManager.LoadScene("Result");
         }
         else
         {
-            _timer += Time.deltaTime;
-            _text.text = _timer.ToString("f2");
+            _timer -= Time.deltaTime;
+            _text.text = "ŽžŠÔF" + _timer.ToString("f2");
+            //¬”“_ˆÈ‰º‘æ‚QˆÊ‚Ü‚Å•\Ž¦
         }
     }
 }
